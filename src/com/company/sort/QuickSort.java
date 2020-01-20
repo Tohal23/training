@@ -1,24 +1,12 @@
 package com.company.sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
 public class QuickSort {
-
-    private static <T extends Comparable<T>> void randArr(T[] arr, Random random) {
-        for (int i = 1; i < arr.length; i++) {
-            arr[random.nextInt(i) & Integer.MAX_VALUE] = arr[i];
-        }
-    }
-
     public static <T extends Comparable<T>> void sort(T[] arr, int start, int end) {
-        Random random = new Random();
-        randArr(arr, random);
-
-
         if (start < end) {
-            T divider = arr[random.nextInt(end - start) + start];
+            T divider = arr[start];
 
             int lo = start;
             int hi = end;
@@ -56,7 +44,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int size = 1000000;
+        int size = 10000;
 
         Integer[] testArray = new Integer[size];
 
@@ -67,7 +55,7 @@ public class QuickSort {
         }
 
         long before = System.currentTimeMillis();
-        sort(Arrays.copyOf(testArray, testArray.length),0, testArray.length-1);
+        sort(testArray,0, testArray.length-1);
         long first = System.currentTimeMillis();
 
         System.out.println(Arrays.toString(testArray));
