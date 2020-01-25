@@ -42,21 +42,23 @@ public class HeapSort {
     public static void main(String[] args) {
         int size = 1000000;
 
-        Integer[] testArray = new Integer[size];
+        for (int j = 0; j < 15; j++) {
+            Integer[] testArray = new Integer[size];
 
-        Random r = new Random();
+            Random r = new Random();
 
-        for (int i = 0; i < testArray.length; i++) {
-            testArray[i] = r.nextInt();
+            for (int i = 0; i < testArray.length; i++) {
+                testArray[i] = r.nextInt();
+            }
+
+            long before = System.currentTimeMillis();
+            ArrayList<Integer> arr2 = heapSort(Arrays.copyOf(testArray, testArray.length));
+            long first = System.currentTimeMillis();
+
+            //System.out.println(arr2.toString());
+
+            System.out.println("First Sort: " + ((double) (first - before)) / 1000);
         }
-
-        long before = System.currentTimeMillis();
-        ArrayList<Integer> arr2 = heapSort(Arrays.copyOf(testArray, testArray.length));
-        long first = System.currentTimeMillis();
-
-        System.out.println(arr2.toString());
-
-        System.out.println("First Sort: " + ((double) (first - before)) / 1000);
 
     }
 

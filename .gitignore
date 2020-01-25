@@ -1,2 +1,7 @@
+<<<<<<< Updated upstream
 .idea/
 /training.iml
+=======
+# Project exclude paths
+/out/
+>>>>>>> Stashed changes

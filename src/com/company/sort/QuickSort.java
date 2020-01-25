@@ -44,23 +44,25 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int size = 10000;
+        for (int j = 0; j < 100; j++) {
+            int size = 1000000;
 
-        Integer[] testArray = new Integer[size];
+            Integer[] testArray = new Integer[size];
 
-        Random r = new Random();
+            Random r = new Random();
 
-        for (int i = 0; i < testArray.length; i++) {
-            testArray[i] = r.nextInt();
+            for (int i = 0; i < testArray.length; i++) {
+                testArray[i] = r.nextInt();
+            }
+
+            long before = System.currentTimeMillis();
+            sort(testArray,0, testArray.length-1);
+            long first = System.currentTimeMillis();
+
+            //System.out.println(Arrays.toString(testArray));
+
+            System.out.println("First Sort: " + ((double) (first - before)) / 1000);
         }
-
-        long before = System.currentTimeMillis();
-        sort(testArray,0, testArray.length-1);
-        long first = System.currentTimeMillis();
-
-        System.out.println(Arrays.toString(testArray));
-
-        System.out.println("First Sort: " + ((double) (first - before)) / 1000);
     }
 
 }
